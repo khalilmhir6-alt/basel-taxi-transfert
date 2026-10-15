@@ -1,2 +1,4 @@
 .wrangler/
 node_modules/
+# local duplicate of dist/index.html — not tracked
+/Basel Taxi Transfert.html
