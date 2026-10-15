@@ -10,6 +10,7 @@ ACCESS_APPLICATION_AUD = "YOUR-ACCESS-APPLICATION-AUD"
 [assets]
 directory = "./dist"
 binding = "ASSETS"
+run_worker_first = true
 
 [[kv_namespaces]]
 binding = "BT_STORE"
