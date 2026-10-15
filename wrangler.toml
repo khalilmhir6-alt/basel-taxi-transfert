@@ -1,0 +1,16 @@
+name = "transfert"
+main = "worker/api.js"
+compatibility_date = "2026-10-06"
+workers_dev = true
+
+[vars]
+ACCESS_TEAM_DOMAIN = "https://YOUR-TEAM.cloudflareaccess.com"
+ACCESS_APPLICATION_AUD = "YOUR-ACCESS-APPLICATION-AUD"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+
+[[kv_namespaces]]
+binding = "BT_STORE"
+id = "4a522646e4a6428b9bbad606183da6e7"
