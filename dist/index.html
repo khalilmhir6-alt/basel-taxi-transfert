@@ -186,9 +186,14 @@ section:target>h2{color:var(--red)}
 .fleet .body{display:block}
 .fleet .card{background:var(--card)}
 .fleet .card img{aspect-ratio:16/9;object-fit:contain}
+#dotbg{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35}
+:root[data-theme="light"] #dotbg{filter:invert(1);opacity:.18}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) #dotbg{filter:invert(1);opacity:.18}}
+@media(prefers-reduced-motion:reduce){#dotbg{display:none}}
 </style>
 </head>
 <body>
+<div id="dotbg" aria-hidden="true"></div>
 <div class="w">
 <header>
   <div class="logo"><i class="x"></i>Basel Taxi Transfert</div>
@@ -220,7 +225,7 @@ section:target>h2{color:var(--red)}
     </div>
     <ul>
       <li><b data-i18n="prof.k2">Leistungen</b><span data-i18n="prof.v2">Taxi · Transfer</span></li>
-      <li><b data-i18n="prof.k3">Einsatzgebiet</b><span data-i18n="prof.v3">Die ganze Schweiz und Umgebung</span></li>
+      <li><b data-i18n="prof.k3">Einsatzgebiet</b><span data-i18n="prof.v3">Basel und Umgebung</span></li>
       <li><b data-i18n="prof.k4">Preis</b><span data-i18n="prof.v4">Auf Anfrage</span></li>
       <li><b data-i18n="prof.k5">Sprachen</b><span data-i18n="prof.v5">Deutsch, Französisch, Englisch</span></li>
     </ul>
@@ -516,7 +521,7 @@ var I18N = {
     "cta.wa": "Hallo, ich möchte einen Transfer buchen.",
     "prof.role": "Chauffeur & Inhaber",
     "prof.k2": "Leistungen", "prof.v2": "Taxi · Transfer",
-    "prof.k3": "Einsatzgebiet", "prof.v3": "Die ganze Schweiz und Umgebung",
+    "prof.k3": "Einsatzgebiet", "prof.v3": "Basel und Umgebung",
     "prof.k4": "Preis", "prof.v4": "Auf Anfrage",
     "prof.k5": "Sprachen", "prof.v5": "Deutsch, Französisch, Englisch",
     "rev.h2": "Bewertungen",
@@ -652,7 +657,7 @@ var I18N = {
     "cta.wa": "Bonjour, je voudrais réserver un transfert.",
     "prof.role": "Chauffeur & gérant",
     "prof.k2": "Services", "prof.v2": "Taxi · Transfert",
-    "prof.k3": "Zone desservie", "prof.v3": "Toute la Suisse et environs",
+    "prof.k3": "Zone desservie", "prof.v3": "Bâle et environs",
     "prof.k4": "Prix", "prof.v4": "Sur demande",
     "prof.k5": "Langues", "prof.v5": "Allemand, français, anglais",
     "rev.h2": "Avis",
@@ -788,7 +793,7 @@ var I18N = {
     "cta.wa": "Hello, I would like to book a transfer.",
     "prof.role": "Driver & owner",
     "prof.k2": "Services", "prof.v2": "Taxi · Transfer",
-    "prof.k3": "Service area", "prof.v3": "All of Switzerland and surroundings",
+    "prof.k3": "Service area", "prof.v3": "Basel and surroundings",
     "prof.k4": "Price", "prof.v4": "On request",
     "prof.k5": "Languages", "prof.v5": "German, French, English",
     "rev.h2": "Reviews",
@@ -1707,6 +1712,24 @@ function adminInit() {
   });
   if (isAdmin()) adminInit();
 })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js" defer></script>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+  try {
+    if (typeof lottie === 'undefined' || !lottie.loadAnimation) return;
+    var el = document.getElementById('dotbg');
+    if (!el) return;
+    lottie.loadAnimation({
+      container: el,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '/dot-pattern.json',
+      preserveAspectRatio: 'xMidYMid slice'
+    });
+  } catch (e) {}
+});
 </script>
 </body>
 </html>
