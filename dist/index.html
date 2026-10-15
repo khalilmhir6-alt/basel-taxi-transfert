@@ -186,9 +186,9 @@ section:target>h2{color:var(--red)}
 .fleet .body{display:block}
 .fleet .card{background:var(--card)}
 .fleet .card img{aspect-ratio:16/9;object-fit:contain}
-#dotbg{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35}
-:root[data-theme="light"] #dotbg{filter:invert(1);opacity:.18}
-@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) #dotbg{filter:invert(1);opacity:.18}}
+#dotbg{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.6;filter:brightness(1.35) saturate(1.15)}
+:root[data-theme="light"] #dotbg{filter:invert(1) brightness(1.05);opacity:.28}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) #dotbg{filter:invert(1) brightness(1.05);opacity:.28}}
 @media(prefers-reduced-motion:reduce){#dotbg{display:none}}
 </style>
 </head>
